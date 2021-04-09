@@ -1,22 +1,28 @@
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning'
       version:
         description: 'Version'
         required: true
-      tags:
-        required: false
-        description: 'Test scenario tags'
+        default: '1.0.0'
 
 jobs:
   printInputs:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "Log level: ${{ github.event.inputs.logLevel }}"
-          echo "Tags: ${{ github.event.inputs.tags }}"
-          echo "Tags: ${{ github.event.inputs.version }}"
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Print Version
+        run: |
+          echo "Version: ${{ github.event.inputs.version }}"
+          node ./script.js
+          echo "Done"
+      - name: Create Pull Request
+          uses: peter-evans/create-pull-request@v3
+          with:
+            commit-message: update authors
+            title: Update AUTHORS
+            body: Credit new contributors by updating AUTHORS
+            branch: update-authors
