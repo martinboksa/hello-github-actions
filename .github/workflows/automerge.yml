@@ -1,38 +1,23 @@
-name: automerge
+name: Check PR can be merged
 on:
   pull_request:
-    types:
-      - labeled
-      - unlabeled
-      - synchronize
-      - opened
-      - edited
-      - ready_for_review
-      - reopened
-      - unlocked
-  pull_request_review:
-    types:
-      - submitted
-  check_suite:
-    types:
-      - completed
-  status: {}
+    types: [labeled]
+    branches:
+      - release/* # The branch you want to automatically merge pull request
 jobs:
-  automerge:
+  AutoMerge:
     runs-on: ubuntu-latest
     steps:
-      - name: automerge
-        uses: "pascalgn/automerge-action@v0.13.1"
-        env:
-          GITHUB_TOKEN: "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"
-          MERGE_LABELS: "automerge"
-          MERGE_REMOVE_LABELS: "automerge"
-          MERGE_METHOD: "squash"
-          MERGE_COMMIT_MESSAGE: "pull-request-description"
-          MERGE_FORKS: "false"
-          MERGE_RETRIES: "6"
-          MERGE_RETRY_SLEEP: "10000"
-          UPDATE_LABELS: ""
-          UPDATE_METHOD: "rebase"
+      - name: Automatically Merge PR
+        uses: plm9606/automerge_actions@1.2.2
         with:
-          args: "--trace"
+          # The label name to automatically merge. Default is "automerge".
+          label-name: "automerge"
+          # The number of reviewers to automatically merge. Default is 1.
+          reviewers-number: 0
+          # The merge method ("merge", "squash", "rebase"). Default is "merge"
+          merge-method: "merge"
+          # Let the bot delete the merged branch. true or false.
+          auto-delete: "true"
+          # GitHub WebHook Secret Token
+          github-token: "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"
