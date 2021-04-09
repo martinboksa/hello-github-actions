@@ -24,7 +24,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          token: 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
+          token: "${{ secrets.TOKEN }}"
           commit-message: update authors
           title: Bump version ${{ github.event.inputs.version }}
           branch: release/v${{ github.event.inputs.version }}
