@@ -28,5 +28,4 @@ jobs:
           title: Bump version ${{ github.event.inputs.version }}
           branch: release/v${{ github.event.inputs.version }}
           labels: |
-            automerge
             release
