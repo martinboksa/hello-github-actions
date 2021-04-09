@@ -1,4 +1,4 @@
-name: Automerge Release
+name: Automerge
 on:
   pull_request:
     types:
@@ -28,7 +28,7 @@ jobs:
           GITHUB_TOKEN: "${{ secrets.TOKEN }}"
           MERGE_REMOVE_LABELS: "automerge"
           MERGE_METHOD: "rebase"
-          MERGE_LABELS: "automerge,release"
+          MERGE_LABELS: "automerge"
           MERGE_FORKS: "false"
           MERGE_RETRIES: "6"
           MERGE_RETRY_SLEEP: "10000"
