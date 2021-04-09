@@ -6,7 +6,7 @@ on:
 
   # Try merging all open pull requests.
   schedule:
-    - cron: * * * * *
+    - cron: 0 * * * *
 
   # Try merging pull requests belonging to a workflow run.
   workflow_run:
