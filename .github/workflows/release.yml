@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
@@ -20,9 +22,9 @@ jobs:
           node ./script.js
           echo "Done"
       - name: Create Pull Request
-          uses: peter-evans/create-pull-request@v3
-          with:
-            commit-message: update authors
-            title: Update AUTHORS
-            body: Credit new contributors by updating AUTHORS
-            branch: update-authors
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: update authors
+          title: Update AUTHORS
+          body: Credit new contributors by updating AUTHORS
+          branch: update-authors
