@@ -1,4 +1,4 @@
-name: automerge
+name: Automerge Release
 on:
   pull_request:
     types:
@@ -10,10 +10,8 @@ on:
       - ready_for_review
       - reopened
       - unlocked
-  check_suite:
-    types:
-      - completed
   status: {}
+
 jobs:
   automerge:
     runs-on: ubuntu-latest
