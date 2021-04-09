@@ -20,6 +20,7 @@ jobs:
       - name: Set app version
         run: |
           echo "New version: ${{ github.event.inputs.version }}"
+          node ./check-version.js ${{ github.event.inputs.version }}
           node ./script.js ${{ github.event.inputs.version }}
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
