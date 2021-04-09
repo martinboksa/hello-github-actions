@@ -26,3 +26,5 @@ jobs:
         env:
           MERGE_LABELS: "automerge"
           MERGE_REMOVE_LABELS: "automerge"
+        with:
+          args: "--trace"
