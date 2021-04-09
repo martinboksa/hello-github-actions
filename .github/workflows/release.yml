@@ -29,3 +29,4 @@ jobs:
           branch: release/v${{ github.event.inputs.version }}
           labels: |
             automerge
+            release
