@@ -25,6 +25,6 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           commit-message: update authors
-          title: Bump version ${github.event.inputs.version}
+          title: Bump version ${{ github.event.inputs.version }}
           body: Credit new contributors by ${{ github.event.inputs.version }}
-          branch: update-authors
+          branch: release/v${{ github.event.inputs.version }}
