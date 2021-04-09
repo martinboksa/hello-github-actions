@@ -8,6 +8,7 @@ on:
 
 jobs:
   printInputs:
+    name: Create Release Pull Request
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -16,11 +17,10 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: Print Version
+      - name: Set app version
         run: |
-          echo "Version: ${{ github.event.inputs.version }}"
+          echo "New version: ${{ github.event.inputs.version }}"
           node ./script.js ${{ github.event.inputs.version }}
-          echo "Done"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
