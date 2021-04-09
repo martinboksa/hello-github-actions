@@ -2,7 +2,7 @@ name: Automerge
 on:
   pull_request:
     branches:
-      - release/*
+      - release/**
     types:
       - labeled
       - unlabeled
