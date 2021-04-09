@@ -26,8 +26,9 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           token: "${{ secrets.TOKEN }}"
-          commit-message: update authors
-          title: Bump version ${{ github.event.inputs.version }}
+          commit-message: Bump new version ${{ github.event.inputs.version }}
+          title: Bump new version ${{ github.event.inputs.version }}
+          body: New Smarkup version ${{ github.event.inputs.version }}
           branch: releases/v${{ github.event.inputs.version }}
           labels: |
             automerge
