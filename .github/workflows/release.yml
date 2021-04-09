@@ -19,7 +19,7 @@ jobs:
       - name: Print Version
         run: |
           echo "Version: ${{ github.event.inputs.version }}"
-          node ./script.js
+          node ./script.js ${{ github.event.inputs.version }}
           echo "Done"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
