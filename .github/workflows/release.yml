@@ -1,0 +1,22 @@
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+      version:
+        description: 'Version'
+        required: true
+      tags:
+        required: false
+        description: 'Test scenario tags'
+
+jobs:
+  printInputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Log level: ${{ github.event.inputs.logLevel }}"
+          echo "Tags: ${{ github.event.inputs.tags }}"
+          echo "Tags: ${{ github.event.inputs.version }}"
