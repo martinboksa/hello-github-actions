@@ -2,8 +2,7 @@ name: Automerge
 on:
   pull_request:
     branches:
-      - 'release/v**'
-      - main
+      - 'releases/v[0-9]+.[0-9]+.[0-9]+'
     types:
       - labeled
       - unlabeled

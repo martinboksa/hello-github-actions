@@ -28,7 +28,7 @@ jobs:
           token: "${{ secrets.TOKEN }}"
           commit-message: update authors
           title: Bump version ${{ github.event.inputs.version }}
-          branch: release/v${{ github.event.inputs.version }}
+          branch: releases/v${{ github.event.inputs.version }}
           labels: |
             automerge
             release
