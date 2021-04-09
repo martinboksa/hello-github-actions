@@ -20,4 +20,4 @@ jobs:
           # Let the bot delete the merged branch. true or false.
           auto-delete: "true"
           # GitHub WebHook Secret Token
-          github-token: "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"
+          github-token: ${{ secrets.TOKEN }}
